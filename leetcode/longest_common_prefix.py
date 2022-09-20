@@ -16,9 +16,22 @@ class Solution:
                 break
         return answer
 
+    def longestCommonPrefix2(self, strs: List[str]) -> str:
+        longest_prefix = ""
+        for chars in zip(*strs):
+            if len(set(chars)) == 1:
+                longest_prefix += chars[0]
+            else:
+                break
+        return longest_prefix
+
 
 if __name__ == '__main__':
     solution = Solution()
     assert solution.longestCommonPrefix(["flower", "flow", "flight"]) == "fl"
     assert solution.longestCommonPrefix(["dog", "racecar", "car"]) == ""
     assert solution.longestCommonPrefix(["cir", "car"]) == "c"
+
+    assert solution.longestCommonPrefix2(["flower", "flow", "flight"]) == "fl"
+    assert solution.longestCommonPrefix2(["dog", "racecar", "car"]) == ""
+    assert solution.longestCommonPrefix2(["cir", "car"]) == "c"

@@ -1,0 +1,7 @@
+POST http://localhost:8080/orderRecords
+Content-Type: application/json;
+
+{
+  "orderId": "1",
+  "orderStatus": "READY"
+}

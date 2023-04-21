@@ -1,0 +1,6 @@
+PATCH http://localhost:8080/orderRecords/1
+Content-Type: application/json;
+
+{
+  "status": "READY"
+}

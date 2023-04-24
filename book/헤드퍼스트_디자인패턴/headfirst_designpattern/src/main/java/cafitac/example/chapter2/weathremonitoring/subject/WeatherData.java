@@ -1,4 +1,6 @@
-package cafitac.example.chapter2.weathremonitoring;
+package cafitac.example.chapter2.weathremonitoring.subject;
+
+import cafitac.example.chapter2.weathremonitoring.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

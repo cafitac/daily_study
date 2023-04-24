@@ -1,4 +1,6 @@
-package cafitac.example.chapter2.weathremonitoring;
+package cafitac.example.chapter2.weathremonitoring.subject;
+
+import cafitac.example.chapter2.weathremonitoring.observer.Observer;
 
 public interface Subject {
 

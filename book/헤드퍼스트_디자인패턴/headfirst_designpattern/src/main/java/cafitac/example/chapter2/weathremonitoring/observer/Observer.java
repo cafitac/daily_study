@@ -1,4 +1,4 @@
-package cafitac.example.chapter2.weathremonitoring;
+package cafitac.example.chapter2.weathremonitoring.observer;
 
 public interface Observer {
 

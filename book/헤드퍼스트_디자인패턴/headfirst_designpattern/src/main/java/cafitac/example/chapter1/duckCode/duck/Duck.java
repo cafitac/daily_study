@@ -1,7 +1,7 @@
-package cafitac.example.duckCode.duck;
+package cafitac.example.chapter1.duckCode.duck;
 
-import cafitac.example.duckCode.behavior.fly.FlyBehavior;
-import cafitac.example.duckCode.behavior.quack.QuackBehavior;
+import cafitac.example.chapter1.duckCode.behavior.fly.FlyBehavior;
+import cafitac.example.chapter1.duckCode.behavior.quack.QuackBehavior;
 
 public abstract class Duck {
 

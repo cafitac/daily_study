@@ -1,9 +1,9 @@
-package cafitac.example.duckCode;
+package cafitac.example.chapter1.duckCode;
 
-import cafitac.example.duckCode.behavior.fly.FlyRocketPowered;
-import cafitac.example.duckCode.duck.Duck;
-import cafitac.example.duckCode.duck.MallardDuck;
-import cafitac.example.duckCode.duck.ModelDuck;
+import cafitac.example.chapter1.duckCode.behavior.fly.FlyRocketPowered;
+import cafitac.example.chapter1.duckCode.duck.Duck;
+import cafitac.example.chapter1.duckCode.duck.MallardDuck;
+import cafitac.example.chapter1.duckCode.duck.ModelDuck;
 
 public class MiniDuckSimulator {
 

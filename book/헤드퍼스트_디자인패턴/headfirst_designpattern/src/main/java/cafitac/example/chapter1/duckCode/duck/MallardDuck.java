@@ -1,7 +1,7 @@
-package cafitac.example.duckCode.duck;
+package cafitac.example.chapter1.duckCode.duck;
 
-import cafitac.example.duckCode.behavior.fly.FlyWithWings;
-import cafitac.example.duckCode.behavior.quack.Quack;
+import cafitac.example.chapter1.duckCode.behavior.fly.FlyWithWings;
+import cafitac.example.chapter1.duckCode.behavior.quack.Quack;
 
 public class MallardDuck extends Duck {
 

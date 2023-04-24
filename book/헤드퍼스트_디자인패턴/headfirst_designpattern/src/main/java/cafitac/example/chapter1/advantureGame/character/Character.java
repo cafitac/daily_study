@@ -1,6 +1,6 @@
-package cafitac.example.advantureGame.character;
+package cafitac.example.chapter1.advantureGame.character;
 
-import cafitac.example.advantureGame.weaponBehavior.WeaponBehavior;
+import cafitac.example.chapter1.advantureGame.weaponBehavior.WeaponBehavior;
 
 public abstract class Character {
 

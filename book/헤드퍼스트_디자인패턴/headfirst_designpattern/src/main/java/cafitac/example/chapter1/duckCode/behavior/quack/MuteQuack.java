@@ -1,4 +1,4 @@
-package cafitac.example.duckCode.behavior.quack;
+package cafitac.example.chapter1.duckCode.behavior.quack;
 
 public class MuteQuack implements QuackBehavior {
 

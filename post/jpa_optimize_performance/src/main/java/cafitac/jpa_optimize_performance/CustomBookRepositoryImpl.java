@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class CustomBookRepositoryImpl implements CustomBookRepository {
 
-    private static final int BATCH_SIZE = 1000;
+    private static final int BATCH_SIZE = 100;
     private final JdbcTemplate jdbcTemplate;
 
     @Override
@@ -23,26 +23,17 @@ public class CustomBookRepositoryImpl implements CustomBookRepository {
         if (books.isEmpty()) {
             return;
         }
-        batchInsert(BATCH_SIZE, books);
+        batchInsert(books);
     }
 
-    private void batchInsert(int batchSize, List<Book> books) {
+    private void batchInsert(List<Book> books) {
         jdbcTemplate.batchUpdate(
-                " INSERT INTO book (author_id, title) VALUES (?, ?);",
-                new BatchPreparedStatementSetter() {
-                    @Override
-                    public void setValues(PreparedStatement ps, int i) throws SQLException {
-                        log.debug("Save Sentence Index : " + i);
-                        final Book book = books.get(i);
-                        ps.setLong(1, book.getAuthor().getId());
-                        ps.setString(2, book.getTitle());
-                    }
-
-                    @Override
-                    public int getBatchSize() {
-                        return books.size();
-                    }
-                }
-        );
+            " INSERT INTO book (author_id, title) VALUES (?, ?);",
+            books,
+            BATCH_SIZE,
+            (final PreparedStatement ps, final Book book) -> {
+                ps.setLong(1, book.getAuthor().getId());
+                ps.setString(2, book.getTitle());
+            });
     }
 }

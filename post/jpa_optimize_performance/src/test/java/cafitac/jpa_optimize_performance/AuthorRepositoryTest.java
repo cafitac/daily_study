@@ -1,17 +1,17 @@
 package cafitac.jpa_optimize_performance;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-@ActiveProfiles("test")
+@Transactional
 public class AuthorRepositoryTest {
 
     @Autowired
@@ -23,25 +23,26 @@ public class AuthorRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        System.out.println("setUP");
         startTime = System.nanoTime();
     }
 
     @AfterEach
     void tearDown() {
+        System.out.println("tearDown");
         endTime = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println(totalTime);
+        System.out.println(TimeUnit.SECONDS.convert(totalTime, TimeUnit.NANOSECONDS) + "s");
     }
 
     @DisplayName("전체 검색")
     @Test
     void findAll() {
         final List<Book> books = bookRepository.findAll();
-        System.out.println(books.stream().count());
 
         for (final Book book : books) {
-            System.out.println(book.getTitle());
-            System.out.println(book.getAuthor().getName());
+            final String title = book.getTitle();
+            final String name = book.getAuthor().getName();
         }
     }
 }

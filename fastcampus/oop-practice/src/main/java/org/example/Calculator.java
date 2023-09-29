@@ -5,6 +5,7 @@ import org.example.calculate.AdditionOperator;
 import org.example.calculate.DivisionOperator;
 import org.example.calculate.MultiplicationOperator;
 import org.example.calculate.NewArithmeticOperator;
+import org.example.calculate.PositiveNumber;
 import org.example.calculate.SubtractionOperator;
 
 public class Calculator {
@@ -13,7 +14,7 @@ public class Calculator {
         new AdditionOperator(), new SubtractionOperator(), new MultiplicationOperator(),
         new DivisionOperator());
 
-    public static int calculate(final int operand1, final String operator, final int operand2) {
+    public static int calculate(final PositiveNumber operand1, final String operator, final PositiveNumber operand2) {
         return arithmeticOperators.stream()
             .filter(arithmeticOperator -> arithmeticOperator.support(operator))
             .map(arithmeticOperator -> arithmeticOperator.calculate(operand1, operand2))

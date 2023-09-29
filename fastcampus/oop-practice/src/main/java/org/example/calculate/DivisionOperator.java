@@ -8,7 +8,7 @@ public class DivisionOperator implements NewArithmeticOperator {
     }
 
     @Override
-    public int calculate(final int operand1, final int operand2) {
-        return operand1 / operand2;
+    public int calculate(final PositiveNumber operand1, final PositiveNumber operand2) {
+        return operand1.toInt() / operand2.toInt();
     }
 }

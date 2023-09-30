@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'cb.qos.logback:logback:classic:1.2.3'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.11'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'

@@ -4,11 +4,12 @@ import java.util.List;
 import org.example.calculate.tobe.AdditionOperator;
 import org.example.calculate.tobe.ArithmeticOperator;
 import org.example.calculate.tobe.DivisionOperator;
+import org.example.calculate.tobe.SubtractionOperator;
 
 public class Calculator {
 
     private static final List<ArithmeticOperator> arithmeticOperators = List.of(
-        new AdditionOperator(), new DivisionOperator());
+        new AdditionOperator(), new SubtractionOperator(), new DivisionOperator());
 
     public static int calculate(final PositiveNumber operand1, final String operator, final PositiveNumber operand2) {
         return arithmeticOperators.stream()

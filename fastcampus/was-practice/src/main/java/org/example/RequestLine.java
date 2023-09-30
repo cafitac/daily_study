@@ -6,12 +6,12 @@ public class RequestLine {
 
     private final String method;
     private final String urlPath;
-    private String queryString;
+    private QueryStrings queryStrings;
 
-    public RequestLine(final String method, final String urlPath, final String queryString) {
+    public RequestLine(final String method, final String urlPath, final String queryStrings) {
         this.method = method;
         this.urlPath = urlPath;
-        this.queryString = queryString;
+        this.queryStrings = new QueryStrings(queryStrings);
     }
 
     public RequestLine(final String requestLine) {
@@ -22,8 +22,20 @@ public class RequestLine {
         this.urlPath = urlPathTokens[0];
 
         if (urlPathTokens.length == 2) {
-            this.queryString = urlPathTokens[1];
+            this.queryStrings = new QueryStrings(urlPathTokens[1]);
         }
+    }
+
+    public boolean isGetRequest() {
+        return "GET".equals(this.method);
+    }
+
+    public boolean matchPath(final String requestPath) {
+        return this.urlPath.equals(requestPath);
+    }
+
+    public QueryStrings getQueryStrings() {
+        return this.queryStrings;
     }
 
     @Override
@@ -36,11 +48,11 @@ public class RequestLine {
         }
         final RequestLine that = (RequestLine) o;
         return Objects.equals(method, that.method) && Objects.equals(urlPath,
-            that.urlPath) && Objects.equals(queryString, that.queryString);
+            that.urlPath) && Objects.equals(queryStrings, that.queryStrings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(method, urlPath, queryString);
+        return Objects.hash(method, urlPath, queryStrings);
     }
 }

@@ -1,10 +1,10 @@
-package org.example.calculator.calculate.domain;
+package org.example.calculator.domain;
 
 import java.util.List;
-import org.example.calculator.calculate.tobe.AdditionOperator;
-import org.example.calculator.calculate.tobe.ArithmeticOperator;
-import org.example.calculator.calculate.tobe.DivisionOperator;
-import org.example.calculator.calculate.tobe.SubtractionOperator;
+import org.example.calculator.tobe.AdditionOperator;
+import org.example.calculator.tobe.ArithmeticOperator;
+import org.example.calculator.tobe.DivisionOperator;
+import org.example.calculator.tobe.SubtractionOperator;
 
 public class Calculator {
 

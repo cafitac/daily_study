@@ -1,6 +1,6 @@
-package org.example.calculator.calculate.tobe;
+package org.example.calculator.tobe;
 
-import org.example.calculator.calculate.domain.PositiveNumber;
+import org.example.calculator.domain.PositiveNumber;
 
 public interface ArithmeticOperator {
 

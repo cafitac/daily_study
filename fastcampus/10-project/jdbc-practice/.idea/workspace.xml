@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55f9b47e-f85e-4cb0-ae5a-4528263098da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/MiniDuckSimulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/fly/FlyBehavior.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/fly/FlyNoWay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/fly/FlyWithWings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/quack/MuteQuack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/quack/Quack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/quack/QuackBehavior.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/behavior/quack/Squeak.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/duck/Duck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/classes/java/main/cafitac/example/duckCode/duck/MallardDuck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/src/main/java/cafitac/example/chapter2/weathremonitoring/WeatherStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../book/헤드퍼스트_디자인패턴/headfirst_designpattern/src/main/java/cafitac/example/chapter2/weathremonitoring/WeatherStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/java/cafitac/springdatarest/SpringDataRestApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/java/cafitac/springdatarest/domain/OrderRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/java/cafitac/springdatarest/domain/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/java/cafitac/springdatarest/domain/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/resources/apiRequest/orderRecords/insert.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/resources/apiRequest/orderRecords/patch.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project/spring-data-rest/src/test/java/cafitac/springdatarest/SpringDataRestApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2WNWggLXCBzHmS0ZldqjdpS8hVA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "android.gradle.sync.needed": "true",
+    "last_opened_file_path": "/Users/reddit/Project/daily_study/fastcampus/jdbc-practice/src/test/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="UserDaoTest.createTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.UserDaoTest.createTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.UserDaoTest.createTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55f9b47e-f85e-4cb0-ae5a-4528263098da" name="Changes" comment="" />
+      <created>1696573631646</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696573631646</updated>
+      <workItem from="1696573632745" duration="5637000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

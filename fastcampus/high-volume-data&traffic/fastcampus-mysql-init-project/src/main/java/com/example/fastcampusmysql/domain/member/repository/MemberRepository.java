@@ -19,7 +19,16 @@ import org.springframework.stereotype.Repository;
 public class MemberRepository {
 
     final private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
     public static final String TABLE = "Member";
+    public static final RowMapper<Member> ROW_MAPPER = (ResultSet resultSet, int rowNum) -> Member
+        .builder()
+        .id(resultSet.getLong("id"))
+        .email(resultSet.getString("email"))
+        .nickname(resultSet.getString("nickname"))
+        .birthday(resultSet.getObject("birthday", LocalDate.class))
+        .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
+        .build();
 
     public Optional<Member> findById(Long id) {
         /*
@@ -30,15 +39,7 @@ public class MemberRepository {
         var sql = String.format("SELECT * FROM %s WHERE id = :id", TABLE);
         var param = new MapSqlParameterSource()
             .addValue("id", id);
-        RowMapper<Member> rowMapper = (ResultSet resultSet, int rowNum) -> Member
-            .builder()
-            .id(resultSet.getLong("id"))
-            .email(resultSet.getString("email"))
-            .nickname(resultSet.getString("nickname"))
-            .birthday(resultSet.getObject("birthday", LocalDate.class))
-            .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
-            .build();
-        var member = namedParameterJdbcTemplate.queryForObject(sql, param, rowMapper);
+        var member = namedParameterJdbcTemplate.queryForObject(sql, param, ROW_MAPPER);
         return Optional.ofNullable(member);
     }
 

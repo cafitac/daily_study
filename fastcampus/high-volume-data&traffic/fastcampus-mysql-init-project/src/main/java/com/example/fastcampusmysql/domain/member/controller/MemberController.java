@@ -10,23 +10,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/members")
 public class MemberController {
 
     private final MemberWriteService memberWriteService;
     private final MemberReadService memberReadService;
 
-    @PostMapping("/members")
+    @PostMapping
     public MemberDto register(@RequestBody RegisterMemberCommand command) {
         final Member member = memberWriteService.register(command);
         return memberReadService.toDto(member);
     }
 
-    @GetMapping("/members/{id}")
+    @GetMapping("/{id}")
     public MemberDto getMember(@PathVariable Long id) {
+        return memberReadService.getMember(id);
+    }
+
+    @PostMapping("/{id}/name")
+    public MemberDto changeNickname(@PathVariable Long id, @RequestBody String nickname) {
+        memberWriteService.changeNickname(id, nickname);
         return memberReadService.getMember(id);
     }
 }

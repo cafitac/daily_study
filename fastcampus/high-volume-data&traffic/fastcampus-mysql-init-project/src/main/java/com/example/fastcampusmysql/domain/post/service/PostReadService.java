@@ -6,7 +6,6 @@ import com.example.fastcampusmysql.domain.post.entity.Post;
 import com.example.fastcampusmysql.domain.post.repository.PostRepository;
 import com.example.fastcampusmysql.util.CursorRequest;
 import java.util.List;
-import java.util.OptionalLong;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,10 +34,13 @@ public class PostReadService {
 
     public PageCursor<Post> getPosts(Long memberId, CursorRequest cursorRequest) {
         var posts = findAllBy(memberId, cursorRequest);
-        var nextKey = posts.stream()
-            .mapToLong(Post::getId)
-            .min()
-            .orElse(CursorRequest.NONE_KEY);
+        final var nextKey = getNextKey(posts);
+        return new PageCursor<>(cursorRequest.next(nextKey), posts);
+    }
+
+    public PageCursor<Post> getPosts(List<Long> memberIds, CursorRequest cursorRequest) {
+        var posts = findAllBy(memberIds, cursorRequest);
+        final var nextKey = getNextKey(posts);
         return new PageCursor<>(cursorRequest.next(nextKey), posts);
     }
 
@@ -48,5 +50,21 @@ public class PostReadService {
                 cursorRequest.key(), memberId, cursorRequest.size());
         }
         return postRepository.findAllByMemberIdOrderByIdDesc(memberId, cursorRequest.size());
+    }
+
+    private List<Post> findAllBy(final List<Long> memberIds, final CursorRequest cursorRequest) {
+        if (cursorRequest.hasKey()) {
+            return postRepository.findAllByLessThenIdAndInMemberIdOrderByIdDesc(
+                cursorRequest.key(), memberIds, cursorRequest.size());
+        }
+        return postRepository.findAllByInMemberIdOrderByIdDesc(memberIds, cursorRequest.size());
+    }
+
+    private static long getNextKey(final List<Post> posts) {
+        var nextKey = posts.stream()
+            .mapToLong(Post::getId)
+            .min()
+            .orElse(CursorRequest.NONE_KEY);
+        return nextKey;
     }
 }

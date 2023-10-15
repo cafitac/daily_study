@@ -8,9 +8,11 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.DisabledIf;
 import org.springframework.util.StopWatch;
 
 @SpringBootTest
+@DisabledIf(expression = "#{environment.getActiveProfiles()[0] == 'test'}", loadContext = true)
 public class PostBulkInsertTest {
 
     @Autowired

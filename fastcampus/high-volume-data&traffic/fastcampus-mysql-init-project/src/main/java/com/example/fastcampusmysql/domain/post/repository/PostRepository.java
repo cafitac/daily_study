@@ -1,5 +1,6 @@
 package com.example.fastcampusmysql.domain.post.repository;
 
+import com.example.fastcampusmysql.domain.post.service.PageCursor;
 import com.example.fastcampusmysql.util.PageHelper;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCount;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
@@ -51,6 +52,20 @@ public class PostRepository {
             """, TABLE);
         var params = new BeanPropertySqlParameterSource(request);
         return namedParameterJdbcTemplate.query(sql, params, DAILY_POST_COUNT_MAPPER);
+    }
+
+    public List<Post> findAllByInId(List<Long> ids) {
+        if (ids.isEmpty()) {
+            return List.of();
+        }
+
+        var sql = String.format("""
+            SELECT *
+            FROM %s
+            WHERE id in (:ids)
+            """, TABLE);
+        var params = new MapSqlParameterSource().addValue("ids", ids);
+        return namedParameterJdbcTemplate.query(sql, params, ROW_MAPPER);
     }
 
     public Page<Post> findAllByMemberId(Long memberId, Pageable pageable) {

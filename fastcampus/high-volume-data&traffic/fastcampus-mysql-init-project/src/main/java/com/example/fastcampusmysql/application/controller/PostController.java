@@ -1,6 +1,6 @@
 package com.example.fastcampusmysql.application.controller;
 
-import com.example.fastcampusmysql.application.usecase.GetFollowingMemberUseCase;
+import com.example.fastcampusmysql.application.usecase.CreatePostUseCase;
 import com.example.fastcampusmysql.application.usecase.GetTimelinePostsUseCase;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCount;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
@@ -25,13 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/posts")
 public class PostController {
 
-    private final PostWriteService postWriteService;
     private final PostReadService postReadService;
     private final GetTimelinePostsUseCase getTimelinePostsUseCase;
+    private final CreatePostUseCase createPostUseCase;
 
     @PostMapping
     public Long create(PostCommand command) {
-        return postWriteService.create(command);
+        return createPostUseCase.execute(command);
     }
 
     @GetMapping("/daily-post-counts")
@@ -60,6 +60,6 @@ public class PostController {
         @PathVariable Long memberId,
         CursorRequest cursorRequest
     ) {
-        return getTimelinePostsUseCase.execute(memberId, cursorRequest);
+        return getTimelinePostsUseCase.executeByTimeline(memberId, cursorRequest);
     }
 }

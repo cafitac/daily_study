@@ -17,16 +17,22 @@ public class Post {
 
     private final LocalDate createdDate;
 
+    private Long likeCount;
+
     private final LocalDateTime createdAt;
 
     @Builder
     public Post(final Long id, final Long memberId, final String contents,
-        final LocalDate createdDate,
-        final LocalDateTime createdAt) {
+        final LocalDate createdDate, final Long likeCount, final LocalDateTime createdAt) {
         this.id = id;
         this.memberId = Objects.requireNonNull(memberId);
         this.contents = Objects.requireNonNull(contents);
         this.createdDate = createdDate == null ? LocalDate.now() : createdDate;
+        this.likeCount = likeCount == null ? 0 : likeCount;
         this.createdAt = createdAt == null ? LocalDateTime.now() : createdAt;
+    }
+
+    public void incrementLikeCount() {
+        this.likeCount++;
     }
 }

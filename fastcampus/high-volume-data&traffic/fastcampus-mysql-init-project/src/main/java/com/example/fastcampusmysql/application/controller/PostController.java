@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/posts")
 public class PostController {
 
+    private final PostWriteService postWriteService;
     private final PostReadService postReadService;
     private final GetTimelinePostsUseCase getTimelinePostsUseCase;
     private final CreatePostUseCase createPostUseCase;
@@ -61,5 +62,10 @@ public class PostController {
         CursorRequest cursorRequest
     ) {
         return getTimelinePostsUseCase.executeByTimeline(memberId, cursorRequest);
+    }
+
+    @PostMapping("/{postId}/like")
+    public void likePost(@PathVariable Long postId) {
+        postWriteService.likePost(postId);
     }
 }

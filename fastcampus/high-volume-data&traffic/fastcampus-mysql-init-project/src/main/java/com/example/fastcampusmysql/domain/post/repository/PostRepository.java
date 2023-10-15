@@ -1,14 +1,14 @@
 package com.example.fastcampusmysql.domain.post.repository;
 
-import com.example.fastcampusmysql.domain.post.service.PageCursor;
-import com.example.fastcampusmysql.util.PageHelper;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCount;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
 import com.example.fastcampusmysql.domain.post.entity.Post;
+import com.example.fastcampusmysql.util.PageHelper;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -40,6 +40,7 @@ public class PostRepository {
         .contents(resultSet.getString("contents"))
         .createdDate(resultSet.getObject("createdDate", LocalDate.class))
         .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
+        .likeCount(resultSet.getLong("likeCount"))
         .build();
 
     public List<DailyPostCount> groupByCreatedDate(DailyPostCountRequest request) {
@@ -86,6 +87,17 @@ public class PostRepository {
         return new PageImpl<Post>(posts, pageable, getCount(memberId));
     }
 
+    public Optional<Post> findById(Long id, Boolean requireLocks) {
+        var sql = String.format("SELECT * FROM %s WHERE id = :id ", TABLE);
+        if (requireLocks) {
+            sql += "FOR UPDATE";
+        }
+        var params = new MapSqlParameterSource().addValue("id", id);
+        final Post nullablePost = namedParameterJdbcTemplate.queryForObject(sql, params,
+            ROW_MAPPER);
+        return Optional.of(nullablePost);
+    }
+
     private Long getCount(Long memberId) {
         var sql = String.format("""
             SELECT count(id)
@@ -130,7 +142,8 @@ public class PostRepository {
         return namedParameterJdbcTemplate.query(sql, params, ROW_MAPPER);
     }
 
-    public List<Post> findAllByLessThenIdAndMemberIdOrderByIdDesc(Long id, Long memberId, int size) {
+    public List<Post> findAllByLessThenIdAndMemberIdOrderByIdDesc(Long id, Long memberId,
+        int size) {
         var sql = String.format("""
             SELECT *
             FROM %s
@@ -146,7 +159,8 @@ public class PostRepository {
         return namedParameterJdbcTemplate.query(sql, params, ROW_MAPPER);
     }
 
-    public List<Post> findAllByLessThenIdAndInMemberIdOrderByIdDesc(Long id, List<Long> memberIds, int size) {
+    public List<Post> findAllByLessThenIdAndInMemberIdOrderByIdDesc(Long id, List<Long> memberIds,
+        int size) {
         if (memberIds.isEmpty()) {
             return List.of();
         }
@@ -170,7 +184,7 @@ public class PostRepository {
         if (post.getId() == null) {
             return insert(post);
         }
-        throw new UnsupportedOperationException("Post는 갱신을 지원하지 않습니다.");
+        return update(post);
     }
 
     public void bulkInsert(List<Post> posts) {
@@ -202,5 +216,20 @@ public class PostRepository {
             .createdDate(post.getCreatedDate())
             .createdAt(post.getCreatedAt())
             .build();
+    }
+
+    private Post update(Post post) {
+        var sql = String.format("""
+            UPDATE %s set
+                memberId = :memberId,
+                contents = :contents,
+                createdDate = :createdDate,
+                likeCount = :likeCount,
+                createdAt = :createdAt
+            WHERE id = :id
+            """, TABLE);
+        SqlParameterSource params = new BeanPropertySqlParameterSource(post);
+        namedParameterJdbcTemplate.update(sql, params);
+        return post;
     }
 }

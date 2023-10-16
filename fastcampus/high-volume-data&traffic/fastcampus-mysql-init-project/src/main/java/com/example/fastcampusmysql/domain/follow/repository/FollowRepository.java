@@ -27,6 +27,12 @@ public class FollowRepository {
         .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
         .build();
 
+    public Follow findById(Long id) {
+        var sql = String.format("SELECT * FROM %s WHERE id = :id", TABLE);
+        var params = new MapSqlParameterSource().addValue("id", id);
+        return namedParameterJdbcTemplate.queryForObject(sql, params, ROW_MAPPER);
+    }
+
     public List<Follow> findAllByFromMemberId(Long fromMemberId) {
         var sql = String.format("SELECT * FROM %s WHERE fromMemberId = :fromMemberId", TABLE);
         var params = new MapSqlParameterSource().addValue("fromMemberId", fromMemberId);

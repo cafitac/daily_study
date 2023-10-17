@@ -3,9 +3,11 @@ package com.example.fastcampusmysql.domain.member.entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
+@EqualsAndHashCode
 public class MemberNicknameHistory {
 
     private final Long id;
@@ -22,6 +24,6 @@ public class MemberNicknameHistory {
         this.id = id;
         this.memberId = Objects.requireNonNull(memberId);
         this.nickname = Objects.requireNonNull(nickname);
-        this.createdAt = createdAt == null ? LocalDateTime.now() : createdAt;
+        this.createdAt = createdAt == null ? LocalDateTime.now().withNano(0) : createdAt;
     }
 }

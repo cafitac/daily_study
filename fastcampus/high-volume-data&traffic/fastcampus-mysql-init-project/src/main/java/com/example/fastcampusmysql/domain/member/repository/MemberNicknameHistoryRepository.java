@@ -4,6 +4,7 @@ import com.example.fastcampusmysql.domain.member.entity.MemberNicknameHistory;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -26,6 +27,14 @@ public class MemberNicknameHistoryRepository {
         .nickname(resultSet.getString("nickname"))
         .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
         .build();
+
+    public Optional<MemberNicknameHistory> findById(Long id) {
+        var sql = String.format("SELECT * FROM %s WHERE id = :id", TABLE);
+        var params = new MapSqlParameterSource().addValue("id", id);
+        var memberNicknameHistory = namedParameterJdbcTemplate.queryForObject(sql, params,
+            ROW_MAPPER);
+        return Optional.of(memberNicknameHistory);
+    }
 
     public List<MemberNicknameHistory> findAllByMemberId(Long memberId) {
         var sql = String.format("SELECT * FROM %s WHERE memberId = :memberId", TABLE);

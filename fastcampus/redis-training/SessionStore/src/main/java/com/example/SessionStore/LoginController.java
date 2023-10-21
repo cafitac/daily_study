@@ -10,19 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    private final static Map<String, String> sessionMap = new HashMap<>();
-
     @GetMapping("/login")
-
     public String login(HttpSession session, @RequestParam String name) {
-        sessionMap.put(session.getId(), name);
+        session.setAttribute("name", name);
 
         return "saved";
     }
 
     @GetMapping("/myName")
     public String myName(HttpSession session) {
-        final String myName = sessionMap.get(session.getId());
+        final String myName = (String) session.getAttribute("name");
 
         return myName;
     }

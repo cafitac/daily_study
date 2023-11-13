@@ -1,10 +1,9 @@
 package com.example.fastcampusmysql.domain.post.repository;
 
 import com.example.fastcampusmysql.domain.post.entity.PostLike;
-import com.example.fastcampusmysql.domain.post.entity.Timeline;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -27,6 +26,14 @@ public class PostLikeRepository {
         .postId(resultSet.getLong("postId"))
         .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
         .build();
+
+    public Optional<PostLike> findById(Long id) {
+        var sql = String.format("SELECT * FROM %s WHERE id = :id", TABLE);
+        var param = new MapSqlParameterSource()
+            .addValue("id", id);
+        var postLike = namedParameterJdbcTemplate.queryForObject(sql, param, ROW_MAPPER);
+        return Optional.ofNullable(postLike);
+    }
 
     public PostLike save(PostLike postLike) {
         if (postLike.getId() == null) {

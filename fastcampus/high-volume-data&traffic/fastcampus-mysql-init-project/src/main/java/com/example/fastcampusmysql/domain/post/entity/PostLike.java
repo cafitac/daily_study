@@ -3,6 +3,7 @@ package com.example.fastcampusmysql.domain.post.entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter

@@ -1,6 +1,16 @@
 package com.example.fastcampusmysql.domain.post;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.example.fastcampusmysql.domain.post.dto.DailyPostCount;
+import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
+import com.example.fastcampusmysql.domain.post.entity.Post;
+import com.example.fastcampusmysql.domain.post.repository.PostRepository;
+import com.example.fastcampusmysql.util.PostFixtureFactory;
+import java.time.LocalDate;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -8,13 +18,24 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PostRepositoryTest {
 
+    @Autowired
+    private PostRepository postRepository;
+
     @Test
     void groupByCreatedDate() {
-        // given
+        var post1 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 30)).nextObject(Post.class);
+        var post2 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 30)).nextObject(Post.class);
+        var post3 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 31)).nextObject(Post.class);
+        postRepository.save(post1);
+        postRepository.save(post2);
+        postRepository.save(post3);
 
-        // when
+        final LocalDate firstDate = LocalDate.of(1999, 12, 30);
+        final LocalDate lastDate = LocalDate.of(1999, 12, 31);
+        final List<DailyPostCount> dailyPostCounts = postRepository.groupByCreatedDate(
+            new DailyPostCountRequest(1L, firstDate, lastDate));
 
-        // then
+        assertThat(dailyPostCounts).hasSize(2);
     }
 
     @Test

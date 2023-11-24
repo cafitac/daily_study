@@ -11,7 +11,7 @@ import org.jeasy.random.EasyRandomParameters;
 
 public class PostFixtureFactory {
 
-    public static EasyRandom get(Long memberId, LocalDate firstDate, LocalDate lastDate) {
+    public static EasyRandom getByDateRange(Long memberId, LocalDate firstDate, LocalDate lastDate) {
         var idPredicate = named("id")
             .and(ofType(Long.class))
             .and(inClass(Post.class));
@@ -24,6 +24,27 @@ public class PostFixtureFactory {
             .excludeField(idPredicate)
             .dateRange(firstDate, lastDate)
             .randomize(memberIdPredicate, () -> memberId);
+
+        return new EasyRandom(param);
+    }
+
+    public static EasyRandom getByCreatedDate(Long memberId, LocalDate createdDate) {
+        var idPredicate = named("id")
+            .and(ofType(Long.class))
+            .and(inClass(Post.class));
+
+        var memberIdPredicate = named("memberId")
+            .and(ofType(Long.class))
+            .and(inClass(Post.class));
+
+        var createdDatePredicate = named("createdDate")
+            .and(ofType(LocalDate.class))
+            .and(inClass(Post.class));
+
+        var param = new EasyRandomParameters()
+            .excludeField(idPredicate)
+            .randomize(memberIdPredicate, () -> memberId)
+            .randomize(createdDatePredicate, () -> createdDate);
 
         return new EasyRandom(param);
     }

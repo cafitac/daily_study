@@ -40,11 +40,21 @@ public class PostRepositoryTest {
 
     @Test
     void findAllByInId() {
-        // given
+        var post1 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 30)).nextObject(Post.class);
+        var post2 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 30)).nextObject(Post.class);
+        var post3 = PostFixtureFactory.getByCreatedDate(1L, LocalDate.of(1999, 12, 31)).nextObject(Post.class);
+        postRepository.save(post1);
+        postRepository.save(post2);
+        postRepository.save(post3);
 
-        // when
+        var posts = postRepository.findAllByMemberIdOrderByIdDesc(1L, 10);
+        var postIds = posts.stream()
+            .map(Post::getId)
+            .toList();
 
-        // then
+        var findPosts = postRepository.findAllByInId(postIds);
+
+        assertThat(findPosts).hasSize(3);
     }
 
     @Test

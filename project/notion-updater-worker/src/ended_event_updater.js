@@ -23,7 +23,7 @@ async function getInProgressEvents() {
             console.error('Error:', err);
         });
 
-    console.log(resp)
+    // console.log(resp);
     return resp.results;
 }
 
@@ -59,6 +59,9 @@ async function run() {
 
     for (const event of inProgressEvents) {
         // console.log(event.properties.competition_end_date)
+        if (event.properties.competition_end_date.date === null) {
+            continue;
+        }
         const competition_end_date = new Date(event.properties.competition_end_date.date.start)
         if (today > competition_end_date) {
             // console.log(event);

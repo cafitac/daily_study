@@ -24,13 +24,11 @@ def candies(n, arr):
         if arr[i] > arr[i-1] and candy_arr[i] <= candy_arr[i-1]:
             candy_arr[i] = candy_arr[i-1] + 1
 
-    arr.reverse()
-    candy_arr.reverse()
-    for i in range(1, len(arr)):
-        if arr[i] > arr[i-1] and candy_arr[i] <= candy_arr[i-1]:
-            candy_arr[i] = candy_arr[i-1] + 1
+    for i in range(len(arr)-1, 0, -1):
+        if arr[i-1] > arr[i] and candy_arr[i-1] <= candy_arr[i]:
+            candy_arr[i-1] = candy_arr[i] + 1
 
-    return sum(candy_arr)
+    return sum(candy_arr
 
 
 if __name__ == '__main__':

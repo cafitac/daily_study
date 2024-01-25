@@ -28,7 +28,7 @@ def candies(n, arr):
         if arr[i-1] > arr[i] and candy_arr[i-1] <= candy_arr[i]:
             candy_arr[i-1] = candy_arr[i] + 1
 
-    return sum(candy_arr
+    return sum(candy_arr)
 
 
 if __name__ == '__main__':

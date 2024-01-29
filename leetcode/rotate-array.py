@@ -3,13 +3,14 @@ from typing import List
 
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
+        k = k % len(nums)
         for _ in range(k):
             nums.insert(0, nums.pop(-1))
 
         return nums
 
 
-# Best
+# Community solution
 class Solution(object):
     def rotate(self, nums, k):
         if len(nums) == 0:
@@ -22,6 +23,16 @@ class Solution(object):
         nums.reverse()
         nums[:k] = reversed(nums[:k])
         nums[k:] = reversed(nums[k:])
+        return nums
+
+
+# Best solution
+class Solution:
+    def rotate(self, nums: List[int], k: int):
+        n = len(nums)
+        k = k % n
+        nums[:] = nums[-k:] + nums[:-k]
+
         return nums
 
 

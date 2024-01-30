@@ -7,7 +7,7 @@ class Solution:
         profit = 0
         buy_price = prices[0]
 
-        for price in prices:
+        for price in prices[1:]:
             if buy_price > price:
                 buy_price = price
             elif profit < price - buy_price:

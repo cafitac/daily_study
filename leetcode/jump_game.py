@@ -40,6 +40,20 @@ class Solution:
         return False
 
 
+# Best solution
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        gas = 0
+        for n in nums:
+            if gas < 0:
+                return False
+            elif n > gas:
+                gas = n
+            gas -= 1
+
+        return True
+
+
 if __name__ == '__main__':
     s = Solution()
     assert s.canJump([2,3,1,1,4]) == True

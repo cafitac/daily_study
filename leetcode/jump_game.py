@@ -20,6 +20,26 @@ class Solution:
             return False
 
 
+# ChatGPT solution
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        max_jump = 0  # 현재 위치에서의 최대 점프 거리
+        n = len(nums)
+
+        for i in range(n):
+            # 현재 위치에서의 최대 점프 거리가 현재 위치를 넘어서면 갱신
+            if i > max_jump:
+                return False
+
+            max_jump = max(max_jump, i + nums[i])
+
+            # 마지막 위치에 도달 가능하면 True 반환
+            if max_jump >= n - 1:
+                return True
+
+        return False
+
+
 if __name__ == '__main__':
     s = Solution()
     assert s.canJump([2,3,1,1,4]) == True

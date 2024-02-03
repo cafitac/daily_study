@@ -1,3 +1,4 @@
 django==5.0.1
 djangorestframework==3.14.0
 django-debug-toolbar==4.3.0
+celery==5.3.6

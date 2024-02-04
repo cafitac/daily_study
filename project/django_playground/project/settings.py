@@ -151,5 +151,11 @@ LOGGING = {
             "level": "INFO",
             "handlers": ["console"],
         },
+        "celery": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+        },
     },
 }
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
